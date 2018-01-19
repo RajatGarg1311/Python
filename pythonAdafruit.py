@@ -21,11 +21,11 @@ for forecast in forecasts:
 			params = urllib.urlencode({'key': 'xxxxxxxxxxxxxxxx', 'field1': forecast.low()})#Thingspeak API !!!
 			f = urllib.urlopen("https://api.thingspeak.com/update", data=params)
 			print ("Taps Turned Off : Its Raining")
-			#	"https://api.thingspeak.com/update?api_key=NDCXGY42HTC4Y&field1="+temp;
+			#	"https://api.thingspeak.com/update?api_key=xxxxxxxxxxxxxY&field1="+temp;
 			#if it is raining then no need to taps so turn off the taps
-			data = aio.send('OnOff','0')
-			data = aio.send('sensortag','0')
-			data = aio.send('welcome-feed','0')
+			data = aio.send('feed1','0')
+			data = aio.send('feed2','0')
+			data = aio.send('feed3','0')
 			#print('Data value Sent: '.format(data.value))
 
 	print(forecast.text())
@@ -35,16 +35,16 @@ for forecast in forecasts:
 	if days%7==0:
 		print ("Taps Turned ON for Trees")
 		#OnOff Feed is for operating valves for trees
-		data = aio.send('OnOff','1')
-		data = aio.send('sensortag','0')
+		data = aio.send('feed1','1')
+		data = aio.send('feed2','0')
 	if days%3==0:
 		print ("Taps Turned ON for Flowering Plants")
 		#sensortag Feed is for operating valves for flowering Plants
-		data = aio.send('sensortag','1')
-		data = aio.send('OnOff','0')
+		data = aio.send('feed2','1')
+		data = aio.send('feed1','0')
 
 	#welcome-feed Feed is for operating valves for flowering Plants
 	print ("Taps Turned ON for Lawn")
-	data = aio.send('welcome-feed','1')
+	data = aio.send('feed3','1')
 	#print('Data value Sent: '.format(data.value))
 
