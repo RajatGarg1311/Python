@@ -1,8 +1,8 @@
 def prime_no(ip_no):
-    div = int(ip_no/2);
+    div = ip_no // 2;
     
     for x in range(2,div+1):
-        test=ip_no%x;
+        test= ip_no % x;
         if test == 0:
             return False;
         else:

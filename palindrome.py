@@ -2,9 +2,9 @@ def palindrome(ip_no):
     temp=ip_no;
     sum_result=0;
     while temp>0:
-        mod = int(temp % 10);
+        mod = temp % 10;
         sum_result = (sum_result * 10) + mod;
-        temp = int(temp / 10);
+        temp = temp // 10;
     if sum_result == ip_no:
         return True;
     else:
